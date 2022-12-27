@@ -23,7 +23,7 @@ class ExpressionEvaluatorTest {
         )
         evaluator = ExpressionEvaluator(expression)
         val actual = evaluator.evaluate()
-        val expected = 4
+        val expected = 4.0
         assertThat(expected).isEqualTo(actual)
     }
 
