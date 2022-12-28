@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.vhontar.materialcalculator.domain.writer.CalculatorAction
 
 data class CalculatorUiAction(
-    val text: String,
+    val text: String?,
     val highlightLevel: HighlightLevel,
     val action: CalculatorAction,
     val content: @Composable () -> Unit = {  }

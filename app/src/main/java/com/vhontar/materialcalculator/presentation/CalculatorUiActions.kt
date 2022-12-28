@@ -24,8 +24,8 @@ val calculatorActions = listOf(
         action = CalculatorAction.Op(Operation.Percent)
     ),
     CalculatorUiAction(
-        text = "÷",
-        highlightLevel = HighlightLevel.SemiHighlighted,
+        text = "/",
+        highlightLevel = HighlightLevel.StronglyHighlighted,
         action = CalculatorAction.Op(Operation.Divide)
     ),
     CalculatorUiAction(
@@ -45,7 +45,7 @@ val calculatorActions = listOf(
     ),
     CalculatorUiAction(
         text = "x",
-        highlightLevel = HighlightLevel.SemiHighlighted,
+        highlightLevel = HighlightLevel.StronglyHighlighted,
         action = CalculatorAction.Op(Operation.Multiply)
     ),
     CalculatorUiAction(
@@ -65,7 +65,7 @@ val calculatorActions = listOf(
     ),
     CalculatorUiAction(
         text = "-",
-        highlightLevel = HighlightLevel.SemiHighlighted,
+        highlightLevel = HighlightLevel.StronglyHighlighted,
         action = CalculatorAction.Op(Operation.Subtract)
     ),
     CalculatorUiAction(
@@ -85,7 +85,7 @@ val calculatorActions = listOf(
     ),
     CalculatorUiAction(
         text = "+",
-        highlightLevel = HighlightLevel.SemiHighlighted,
+        highlightLevel = HighlightLevel.StronglyHighlighted,
         action = CalculatorAction.Op(Operation.Add)
     ),
     CalculatorUiAction(
@@ -99,7 +99,7 @@ val calculatorActions = listOf(
         action = CalculatorAction.Decimal
     ),
     CalculatorUiAction(
-        text = "",
+        text = null,
         content = {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
