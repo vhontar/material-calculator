@@ -9,12 +9,26 @@ class ExpressionWriter {
     var expression = ""
         private set
 
+    private var isCalculatedClicked = false
+
     fun processAction(action: CalculatorAction) {
+        if (isCalculatedClicked && action is CalculatorAction.Number) {
+            expression = ""
+        }
+        isCalculatedClicked = false
+
         when(action) {
             CalculatorAction.Calculate -> {
                 val parser = ExpressionParser(prepareForCalculation())
                 val evaluator = ExpressionEvaluator(parser.parse())
-                expression = evaluator.evaluate().toString()
+
+                val result = evaluator.evaluate()
+                expression = when {
+                    result.compareTo(result.toInt()) == 0 -> result.toInt().toString()
+                    else -> result.toString()
+                }
+
+                isCalculatedClicked = true
             }
             CalculatorAction.Clear -> {
                 expression = ""
@@ -43,7 +57,7 @@ class ExpressionWriter {
 
     private fun prepareForCalculation(): String {
         // 3+4- -> it's not valid
-        val newExpression = expression.takeLastWhile {
+        val newExpression = expression.dropLastWhile {
             it in "$operationSymbols(."
         }
         if (newExpression.isEmpty()) {
@@ -58,7 +72,7 @@ class ExpressionWriter {
         val closingCount = expression.count { it == ')'}
 
         expression += when {
-            expression.isEmpty() || expression in "$operationSymbols(" -> "("
+            expression.isEmpty() || expression.last() in "$operationSymbols(" -> "("
             expression.last() in "0123456789)" && openingCount == closingCount -> return
             else -> ")"
         }
