@@ -1,4 +1,8 @@
-package com.vhontar.materialcalculator.domain
+package com.vhontar.materialcalculator.domain.evaluator
+
+import com.vhontar.materialcalculator.domain.ExpressionPart
+import com.vhontar.materialcalculator.domain.Operation
+import com.vhontar.materialcalculator.domain.ParenthesesType
 
 /**
  * Uses the following grammar
