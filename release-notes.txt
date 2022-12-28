@@ -1,2 +1,0 @@
- - Create calculator functionality/ui
- - Support light/dark mode
