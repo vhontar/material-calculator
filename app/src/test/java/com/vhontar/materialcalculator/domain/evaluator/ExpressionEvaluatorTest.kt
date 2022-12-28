@@ -1,6 +1,9 @@
-package com.vhontar.materialcalculator.domain
+package com.vhontar.materialcalculator.domain.evaluator
 
 import com.google.common.truth.Truth.assertThat
+import com.vhontar.materialcalculator.domain.ExpressionPart
+import com.vhontar.materialcalculator.domain.Operation
+import com.vhontar.materialcalculator.domain.ParenthesesType
 import org.junit.Test
 
 class ExpressionEvaluatorTest {

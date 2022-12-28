@@ -1,4 +1,9 @@
-package com.vhontar.materialcalculator.domain
+package com.vhontar.materialcalculator.domain.parser
+
+import com.vhontar.materialcalculator.domain.ExpressionPart
+import com.vhontar.materialcalculator.domain.ParenthesesType
+import com.vhontar.materialcalculator.domain.operationFromSymbol
+import com.vhontar.materialcalculator.domain.operationSymbols
 
 class ExpressionParser(
     private val calculation: String
@@ -47,7 +52,7 @@ class ExpressionParser(
     private fun parseParentheses(curChar: Char, result: MutableList<ExpressionPart>) {
         result.add(
             ExpressionPart.Parentheses(
-                type = when(curChar) {
+                type = when (curChar) {
                     '(' -> ParenthesesType.Opening
                     ')' -> ParenthesesType.Closing
                     else -> throw IllegalArgumentException("Invalid parentheses type")
